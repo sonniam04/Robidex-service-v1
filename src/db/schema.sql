@@ -7,14 +7,15 @@ CREATE TABLE IF NOT EXISTS categories (
 
 -- Games
 CREATE TABLE IF NOT EXISTS games (
-  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  slug        TEXT UNIQUE NOT NULL,
-  title       TEXT NOT NULL,
-  description TEXT,
-  cover_url   TEXT,
-  category_id UUID REFERENCES categories(id),
-  is_featured BOOLEAN DEFAULT FALSE,
-  created_at  TIMESTAMPTZ DEFAULT NOW()
+  id               UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  slug             TEXT UNIQUE NOT NULL,
+  title            TEXT NOT NULL,
+  description      TEXT,
+  cover_url        TEXT,
+  redeem_image_url TEXT,
+  category_id      UUID REFERENCES categories(id),
+  is_featured      BOOLEAN DEFAULT FALSE,
+  created_at       TIMESTAMPTZ DEFAULT NOW()
 );
 
 -- Official links per game
